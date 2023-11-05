@@ -1,6 +1,6 @@
 <template>
   <div class="app">
-    <h1>MovieLand</h1>
+    <h1>Vue MovieLand</h1>
     <div class="search">
       <input
         type="text"
