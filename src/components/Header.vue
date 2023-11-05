@@ -22,7 +22,7 @@ const searchValue = ref("");
 const data = ref([]);
 
 const handleSearch = async () => {
-  const api = "http://www.omdbapi.com?apikey=b6003d8a";
+  const api = "http://www.omdbapi.com/?i=tt3896198&apikey=30326135";
 
   try {
     const response = await axios.get(`${api}&s=${searchValue.value}`);
