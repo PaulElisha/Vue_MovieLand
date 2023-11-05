@@ -13,37 +13,25 @@
   <Main :data="data" />
 </template>
 
-<script>
+<script setup>
 import axios from "axios";
 import Main from "./Main.vue";
+import { ref } from "vue";
 
-export default {
-  name: "Header",
+const searchValue = ref("");
+const data = ref([]);
 
-  components: {
-    Main,
-  },
-  data() {
-    return {
-      searchValue: "",
-      data: [],
-    };
-  },
-  methods: {
-    async handleSearch() {
-      const api = "http://www.omdbapi.com?apikey=b6003d8a";
+const handleSearch = async () => {
+  const api = "http://www.omdbapi.com?apikey=b6003d8a";
 
-      try {
-        const response = await axios.get(`${api}&s=${this.searchValue}`);
-        const data = response.data.Search;
-        console.log(data);
-        this.data = data;
-        this.searchValue = "";
-      } catch (err) {
-        console.log(err);
-      }
-    },
-  },
+  try {
+    const response = await axios.get(`${api}&s=${searchValue.value}`);
+    data.value = response.data.Search;
+    console.log(response);
+    searchValue.value = "";
+  } catch (err) {
+    console.log(err);
+  }
 };
 </script>
 

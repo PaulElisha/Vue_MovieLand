@@ -11,20 +11,11 @@
   </div>
 </template>
 
-<script>
+<script setup>
 import Card from "./Card.vue";
-export default {
-  name: "Main",
-  props: {
-    data: Object,
-  },
-  components: {
-    Card,
-  },
-  data() {
-    return {};
-  },
-};
+import { defineProps } from "vue";
+
+const props = defineProps(["data"]);
 </script>
 
 <style></style>

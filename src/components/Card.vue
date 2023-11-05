@@ -5,7 +5,14 @@
     </div>
 
     <div>
-      <img :src="data.Poster" alt="{{data.Title}}" />
+      <img
+        :src="
+          data.Poster !== 'N/A'
+            ? data.Poster
+            : 'https://via.placeholder.com/400'
+        "
+        alt="{{data.Title}}"
+      />
     </div>
 
     <div>
@@ -15,11 +22,10 @@
   </div>
 </template>
 
-<script>
-export default {
-  name: "Card",
-  props: ["data"],
-};
+<script setup>
+import { defineProps } from "vue";
+
+const props = defineProps(["data"]);
 </script>
 
 <style></style>
